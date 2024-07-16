@@ -1,0 +1,22 @@
+{
+  "name": "ohmyfood",
+  "version": "1.0.0",
+  "description": "mon deuxieme projet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supervaiki/projet_2-ohmyfood-.git"
+  },
+  "author": "Djongnabe Gueyake beni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supervaiki/projet_2-ohmyfood-/issues"
+  },
+  "homepage": "https://github.com/supervaiki/projet_2-ohmyfood-#readme",
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}
