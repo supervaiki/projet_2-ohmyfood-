@@ -1,11 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
-
 *,
 ::after,
 ::before {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0px;
+  font-family: "roboto", sans-serif;
+}
+
+main {
+  padding: 0 7rem;
+}
+
 header {
   font-family: "Shrikhand", cursive;
   text-align: center;
@@ -13,11 +22,8 @@ header {
   padding: 1rem;
   position: relative;
 }
-body {
-  margin: 0px;
-  font-family: "roboto", sans-serif;
-}
-main .city {
+
+.city {
   background-color: #f3f3f3;
   text-align: center;
   padding: 1rem;
@@ -26,10 +32,10 @@ main .city {
   justify-content: center;
   gap: 1rem;
 }
-main .city i {
+.city i {
   font-size: 1.5rem;
 }
-/* explorer */
+
 .explorer {
   text-align: center;
 }
@@ -41,23 +47,116 @@ main .city i {
   font-size: 1rem;
 }
 .explorer button {
-  background-image: linear-gradient(
-    0deg,
-    rgba(147, 86, 220, 0.9),
-    rgba(255, 121, 218, 0.9)
-  );
+  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
   padding: 1rem 2rem;
   border: none;
   border-radius: 2rem;
-  box-shadow: 2px 7px -3px black;
   transition: transform 0.2s;
   margin-top: 1rem;
+  box-shadow: 2px 7px -3px black;
+}
+.explorer button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
 
+.tuto {
+  counter-reset: steps;
 }
-.explorer button:hover{
-    transform: scale(1.02);
-    opacity: 0.9;
+.tuto ol {
+  display: flex;
+  gap: 2rem;
 }
+@media (max-width: 800px) {
+  .tuto ol {
+    flex-direction: columns;
+  }
+}
+.tuto li {
+  position: relative;
+  list-style-type: none;
+  background-color: #f6f6f6;
+  padding: 1.5rem;
+  flex-grow: 1;
+  border: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 2px 7px -3px black;
+}
+.tuto li:hover {
+  transform: scale(1.02);
+}
+.tuto li::before {
+  content: counter(steps);
+  counter-increment: steps;
+  color: white;
+  background-color: #9356dc;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 1rem;
+  left: -1rem;
+  transform: translate(-50%);
+}
+.tuto li i {
+  color: gray;
+  margin-right: 1rem;
+}
+
+.menus {
+  background-color: #f6f6f6;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+.menus_cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (max-width: 1000px) {
+  .menus_cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.menus_cards .new {
+  border: 1px solid black;
+  position: relative;
+}
+.menus_cards .new::before {
+  content: "Nouveau";
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  background-color: #99e2d0;
+}
+
+.card_image {
+  height: 15rem;
+  background-size: cover;
+  border-radius: 1rem;
+}
+.card_image-1 {
+  background-image: url("../assets/menu-1.jpg");
+}
+.card_image-2 {
+  background-image: url("../assets/menu-2.jpg");
+}
+.card_image-3 {
+  background-image: url("../assets/menu-3.jpg");
+}
+.card_image-4 {
+  background-image: url("../assets/menu-4.jpg");
+}
+
+/* explorer */
+
+/*# sourceMappingURL=style.css.map */
