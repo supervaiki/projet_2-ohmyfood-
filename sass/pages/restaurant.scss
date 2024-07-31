@@ -1,0 +1,41 @@
+@use "../../utils/mixins";
+@use "../../utils/variables";
+@use  "../../utils/colors";
+#page-resto {
+    header {
+      &:hover::before {
+        @include mixins.transform-zoom($zoom-level: 1.2, $transformation: translateY(-50%));
+      }
+      &::before {
+        @include mixins.font-awesome($font-weight: 900);
+        content: "\f060";
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        transition: transform 200ms;
+      }
+    }
+  
+    .banner img {
+      display: block;
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .resto__title {
+      margin-top: -2rem;
+      h2 {
+        font-family: "Shrikhand", "cursive";
+        padding: 2rem 1rem;
+        @include mixins.heart-animated;
+        border-radius: 2rem 2rem 0 0;
+        background-color: colors.$lightergrey;
+      }
+    }
+    .resto-main {
+        padding: 0 1rem;
+      }
+    }

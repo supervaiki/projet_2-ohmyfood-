@@ -1,34 +1,54 @@
-@use"../utils/box-shadow";
-@use"../utils/zoom";
+@use "../utils/mixins";
+@use "../utils/colors";
 .explorer {
-    text-align: center;
-    & h2 {
-      margin-top: 2rem;
-      font-size: 2rem;
-    }
-    & p {
-      font-size: 1rem;
-    }
-    & button {
-      background-image: linear-gradient(
-        0deg,
-        rgba(147, 86, 220, 0.9),
-        rgba(255, 121, 218, 0.9)
-        );
-        color: white;
-        font-weight: bold;
-        font-size: 1.5rem;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 2rem;
-        transition: transform 0.2s;
-        margin-top: 1rem;
-        @include box-shadow.base-shadown;
-        
-      }
-      & button:hover{
-        @include zoom.transform-zoom;
-        opacity: 0.9;
-      }
-    }
-    
+  text-align: center;
+  margin: 2rem;
+  & h2 {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  & p {
+    font-size: 1rem;
+  }
+  & button {
+    @include mixins.base-button;
+    font-size:1rem;
+  }
+}
+
+.loader {
+  $animation-duration: 1s;
+  $animation-count: 3;
+  position: fixed;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms $animation-duration * $animation-count forwards;
+  transform-origin: top;
+  &::after {
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-right: 5px solid transparent;
+    border-top: 5px solid colors.$purple;
+    border-radius: 50%;
+    animation: spin $animation-duration ease-in-out;
+    animation-iteration-count: $animation-count;
+  }
+}
+
+@keyframes disappear {
+  to {
+    transform: scale(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

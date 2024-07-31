@@ -1,67 +1,55 @@
 @use "../utils/variables";
 @use "../utils/colors";
-.menus{
+@use "../utils/mixins";
+
+#homepage {
+  .menus {
     background-color: #f6f6f6;
     margin-bottom: 2rem;
-}
-h2{
-    margin-bottom: 2rem;
-}
-.menus_cards{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2rem;
-    flex-wrap: wrap ;
-    @media (max-width :variables.$shreakpoint){
-        grid-template-columns: repeat(1,1fr);
-        }
- .new{
-   
-    position: relative;
- }
- .new::before{
-    content: "Nouveau";
-    position: absolute;
-    height: 2rem;
-    width: 5rem;
-    background-color: colors.$color-tertiary;
-    color: darken(colors.$color-tertiary, 50%);
-    display: grid;
-    place-items: center;
-    right: 1rem;
-    top: 1rem;
- }
 
-}
-.card{
-    
-    &_image{
+    .menus__cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      @media (max-width: variables.$breakpoint) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .new {
+        position: relative;
+      }
+      .new::before {
+        content: "Nouveau";
+        position: absolute;
+        height: 2rem;
+        width: 5rem;
+        background-color: colors.$color-tertiary;
+        color: darken(colors.$color-tertiary, 50%);
+        display: grid;
+        place-items: center;
+        right: 1rem;
+        top: 1rem;
+      }
+    }
+
+    .card {
+      &__image {
         height: 15rem;
-        background-size: cover;
         border-radius: 1rem 1rem 0 0;
-       
-    }
-    @for $i from 1 through 4{
-        &_image-#{$i}{
-            background-image: url("../assets/menu-#{$i}.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      @for $i from 1 through 4 {
+        &__image-#{$i} {
+          background-image: url("../assets/menu-#{$i}.jpg");
         }
-        &_description{
-            position: relative;
-           h3,p{
-            margin: 0.5rem;
-        } 
-        h3{
-               padding-top: 0.5rem;
-
-           }
-           i{
-            font-size: 2rem;
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-           }
+      }
+      &__description {
+        @include mixins.heart-animated;
+        h3,
+        p {
+          padding: 0.3rem;
         }
+      }
     }
-   
+  }
 }

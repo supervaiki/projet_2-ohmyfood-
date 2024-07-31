@@ -1,6 +1,5 @@
 
-@use "../utils/box-shadow.scss";
-@use "../utils/zoom";
+@use "../utils/mixins";
 @use "../utils/variables";
 .tuto{
     counter-reset: steps;
@@ -20,10 +19,10 @@
         flex-grow: 1;
         border: 1rem;
         border-radius: 1.5rem;
-        @include box-shadow.base-shadown;
+        /*@include mixins.base-shadown;*/
       
         &:hover {
-            @include zoom.transform-zoom;
+            @include mixins.transform-zoom;
         }
         &::before {
            
