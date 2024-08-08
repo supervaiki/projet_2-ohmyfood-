@@ -39,3 +39,10 @@
         padding: 0 1rem;
       }
     }
+    .menu_category{
+      border-radius: 1px solid red;
+      background-color: white;
+      .menu-item{
+        display: flex;
+      }
+    }
